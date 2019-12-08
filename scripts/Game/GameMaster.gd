@@ -4,7 +4,7 @@ var CHUNKSIZE = 100
 
 signal re_cherk_move(cell, dir, jump, ncell)
 signal move(dir)
-signal re_check_buttonL1E()
+signal re_check_buttonL0E()
 signal re_check_buttonTutoL()
 
 func _ready():
@@ -107,17 +107,6 @@ func _on_ButtonTutoL_active():
 	$Player.die()
 
 
-func _on_ButtonL1E_check_player():
-	if $Button/ButtonL1E.position.x == $Player.position.x && $Button/ButtonL1E.position.y == $Player.position.y:
-		emit_signal("re_check_buttonL1E")
-
-
-func _on_ButtonL1E_active():
-	$TileMap.set_cell(1, 8, 0)
-	$TileMap.set_cell(2, 8, 0)
-	$TileMap.set_cell(3, 8, 0)
-
-
 func _on_Player_TutoYes():
 	$Player/Camera/CanvasLayer/Tuto.visible = false
 	$Player.position.x = 30*64+32
@@ -127,4 +116,14 @@ func _on_Player_TutoYes():
 func _on_Player_TutoNo():
 	$Player/Camera/CanvasLayer/Tuto.visible = false
 
+
+func _on_ButtonL0E_check_player():
+	if $Button/ButtonL0E.position.x == $Player.position.x && $Button/ButtonL0E.position.y == $Player.position.y:
+		emit_signal("re_check_buttonL0E")
+
+
+func _on_ButtonL0E_active():
+	$TileMap.set_cell(1, 8, 0)
+	$TileMap.set_cell(2, 8, 0)
+	$TileMap.set_cell(3, 8, 0)
 
