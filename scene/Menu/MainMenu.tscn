@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/menu.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/Menu/StartButton.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/play button.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Menu/QuitButton.gd" type="Script" id=4]
+[ext_resource path="res://assets/img/close button.png" type="Texture" id=5]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1504.0
+margin_bottom = 864.0
+color = Color( 0.529412, 0.509804, 0.509804, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_bottom = 1.0
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 634.0
+margin_bottom = 442.0
+custom_constants/separation = 150
+
+[node name="StartButton" type="Button" parent="Control"]
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 634.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start Game"
+align = 2
+script = ExtResource( 2 )
+
+[node name="play button" type="Sprite" parent="Control/StartButton"]
+position = Vector2( 65, 65 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="QuitButton" type="Button" parent="Control"]
+margin_left = 1312.0
+margin_top = 672.0
+margin_right = 1440.0
+margin_bottom = 800.0
+custom_fonts/font = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="close button" type="Sprite" parent="Control/QuitButton"]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="Control/StartButton" to="Control/StartButton" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="Control/QuitButton" method="_on_QuitButton_pressed"]

@@ -4,6 +4,7 @@ var last_dir = 0
 var jump_possible = true
 var griped = false
 var tuto = false
+var has_tuto_choice = false
 
 const CELL_SIZE = 64
 const MOVE_TILE = [0, 5, 8, 9]
@@ -19,6 +20,9 @@ func _ready():
 	$"."/Camera/CanvasLayer/Tuto.visible = true
 
 func _physics_process(delta):
+	
+	if !has_tuto_choice:
+		return
 	
 	var up = Input.is_action_just_pressed("player_mouvement_up")
 	var down = Input.is_action_just_pressed("player_mouvement_down")
@@ -133,7 +137,9 @@ func _on_Game_move(dir):
 func _on_YesButton_button_down():
 	emit_signal("TutoYes")
 	tuto = true
+	has_tuto_choice = true
 
 
 func _on_NoButton_button_down():
 	emit_signal("TutoNo")
+	has_tuto_choice = true
