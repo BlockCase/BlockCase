@@ -109,7 +109,7 @@ func _on_ButtonTutoL_active():
 
 func _on_Player_TutoYes():
 	$Player/Camera/CanvasLayer/Tuto.visible = false
-	$Player.position.x = 30*64+32
+	$Player.position.x = 57*64+32
 	$Player.position.y = 3*64+32
 
 
@@ -126,4 +126,5 @@ func _on_ButtonL0E_active():
 	$TileMap.set_cell(1, 8, 0)
 	$TileMap.set_cell(2, 8, 0)
 	$TileMap.set_cell(3, 8, 0)
+	$Player.level = 1
 

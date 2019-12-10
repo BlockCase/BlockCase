@@ -5,6 +5,7 @@ var jump_possible = true
 var griped = false
 var tuto = false
 var has_tuto_choice = false
+var level = 0
 
 const CELL_SIZE = 64
 const MOVE_TILE = [0, 5, 8, 9]
@@ -123,10 +124,14 @@ func move(dir):
 
 func die():
 	if !tuto:
-		$".".position.x = 2*64+32
-		$".".position.y = 2*64+32
+		if level == 0:
+			$".".position.x = 2*64+32
+			$".".position.y = 2*64+32
+		elif level == 1:
+			$".".position.x = 2*64+32
+			$".".position.y = 18*64+32
 	elif tuto:
-		$".".position.x = 30*64+32
+		$".".position.x = 57*64+32
 		$".".position.y = 3*64+32
 
 
