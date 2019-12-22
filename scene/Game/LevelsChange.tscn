@@ -29,8 +29,10 @@ rotation = -1.57079
 points = PoolVector2Array( 480, 672, 416, 672, 480, 608, 544, 672, 480, 672, 480, 864 )
 width = 5.0
 default_color = Color( 0.0470588, 0.0666667, 0.160784, 1 )
+texture_mode = 1046066633
 
 [node name="Level 1" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Label" type="Label" parent="Level 1"]
 margin_left = 480.0
@@ -48,6 +50,29 @@ valign = 1
 position = Vector2( 975, 1504 )
 rotation = -3.14159
 points = PoolVector2Array( 480, 672, 416, 672, 480, 608, 544, 672, 480, 672, 480, 864 )
+width = 5.0
+default_color = Color( 0.0470588, 0.0666667, 0.160784, 1 )
+texture_mode = 1046066633
+
+[node name="Level 2" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Level 2"]
+margin_left = 535.995
+margin_top = 1881.0
+margin_right = 983.997
+margin_bottom = 2026.0
+custom_fonts/font = SubResource( 1 )
+text = "Chapitre 1:
+Level 2
+(Bon ça se complique mais
+ça vas encore)"
+align = 1
+valign = 1
+
+[node name="Line2D" type="Line2D" parent="Level 2"]
+position = Vector2( 1029, 2693 )
+rotation = -3.14159
+points = PoolVector2Array( 416, 672, 480, 608, 544, 672, 480, 672, 480, 864 )
 width = 5.0
 default_color = Color( 0.0470588, 0.0666667, 0.160784, 1 )
 texture_mode = 1046066633

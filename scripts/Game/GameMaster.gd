@@ -8,6 +8,7 @@ signal re_check_buttonL0E()
 signal re_check_buttonTutoL()
 
 func _ready():
+	$Player/Camera/CanvasLayer/Color.visible = false
 	
 	for x in CHUNKSIZE:
 		for y in CHUNKSIZE:
@@ -104,21 +105,35 @@ func _on_ButtonTutoL_check_player():
 
 func _on_ButtonTutoL_active():
 	$Player.tuto = false
-	$Player.die()
+	$Player/Camera/CanvasLayer/Score.visible = true
+	$Player/Camera/CanvasLayer/Color/Color1.visible = true
+	$Player/Camera/CanvasLayer/Color/Color2.visible = true
+	$Player.position = Vector2(2*64+32, 2*64+32)
+	$Player.launch()
 
 
 func _on_Player_TutoYes():
 	$Player/Camera/CanvasLayer/Tuto.visible = false
+	$Player/Camera/CanvasLayer/Color.visible = true
+	$Player/Camera/CanvasLayer/Color/Color1.visible = false
+	$Player/Camera/CanvasLayer/Color/Color2.visible = false
+	$Player/Camera/CanvasLayer/Score.visible = false
+	$Player/Camera/CanvasLayer/Score.visible = false
 	$Player.position.x = 57*64+32
 	$Player.position.y = 3*64+32
 
 
 func _on_Player_TutoNo():
 	$Player/Camera/CanvasLayer/Tuto.visible = false
+	$Player/Camera/CanvasLayer/Color.visible = true
+	$Player/Camera/CanvasLayer/Score.visible = true
+	$Player/Camera/CanvasLayer/Color/Color1.visible = true
+	$Player/Camera/CanvasLayer/Color/Color2.visible = true
+	$Player.launch()
 
 
 func _on_ButtonL0E_check_player():
-	if $Button/ButtonL0E.position.x == $Player.position.x && $Button/ButtonL0E.position.y == $Player.position.y:
+	if $Button/ButtonL0E.position == $Player.position:
 		emit_signal("re_check_buttonL0E")
 
 
@@ -128,3 +143,15 @@ func _on_ButtonL0E_active():
 	$TileMap.set_cell(3, 8, 0)
 	$Player.level = 1
 
+
+
+func _on_ButtonL1E_check_player():
+	if $Button/ButtonL1E.position == $Player.position:
+		emit_signal("re_check_buttonL0E")
+
+
+func _on_ButtonL1E_active():
+	$TileMap.set_cell(17, 27, 0)
+	$TileMap.set_cell(18, 27, 0)
+	$TileMap.set_cell(19, 27, 0)
+	$Player.level = 2
